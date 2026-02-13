@@ -1,0 +1,236 @@
+<!--planning and requirements Analysis#-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--search the topic(planning)-->
+    <title>Bike and Car Rental App</title>
+<!--display the background,fontsize,margin and padding-->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #1e293b;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 22px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .card h3 {
+            margin: 10px 0;
+        }
+        .card button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .card button:hover {
+            background: #1d4ed8;
+        }
+        .booking {
+            background: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            display: none;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+           
+    </style>
+</head>
+<body>
+
+<header> 𝖡𝗂𝗄𝖾 𝖺𝗇𝖽 𝖢𝖺𝗋 𝖱𝖾𝗇𝗍𝖺𝗅 𝖡𝗈𝗈𝗄𝗂𝗇𝗀</header>
+<!--display the search-box(requirements)-->
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search bike or car">
+    <button onclick="searchItem()">Search</button>
+</div>
+<!--adding searchbar and need requirements show in browser webpage(Define project scope)-->
+<script>
+    function searchItem() {
+        var item = document.getElementById("searchInput").value;
+
+        if (item.trim() === "") {
+            alert("Please enter bike or car name");
+            return;
+        }
+
+        var googleUrl = "https://www.google.com/search?q=" + encodeURIComponent(item + " rental details");
+        window.open(googleUrl, "_blank");
+    }
+</script>
+
+<!--show the bikes and cars-->
+<div class="container">
+    <div class="card">
+        <img src="https://uploads.onecompiler.io/448z8k6ue/44b8e7pey/bullet.jpg">
+        <h3>Royal Enfield</h3>
+        <a href="https://en.wikipedia.org/wiki/Royal_Enfield">about bike</a>
+        <p>₹1200 / day</p>
+        <button onclick="bookBike('Royal Enfield', 1200)">Book Now</button>
+    </div>
+
+    <div class="card">
+        <img src="https://uploads.onecompiler.io/448z8k6ue/44b8e7pey/duke.jpg">
+        <h3>KTM Duke</h3>
+        <a href="https://en.wikipedia.org/wiki/KTM_Duke_series">about bike</a>
+        <p>₹1500 / day</p>
+        <button onclick="bookBike('KTM Duke', 1500)">Book Now</button>
+    </div>
+     <div class="card">
+        <img src="https://uploads.onecompiler.io/448z8k6ue/44b8e7pey/images%20(1).jpg">
+        <h3>Thar</h3>
+        <a href="https://en.wikipedia.org/wiki/Mahindra_Thar">about car</a>
+        <p>₹5500 / day</p>
+        <button onclick="bookCar('Thar', 5500)">Book Now</button>
+    </div>
+
+    <div class="card">
+        <img src="https://uploads.onecompiler.io/448z8k6ue/44b8e7pey/pulsar-220-right-side-view-17.avif">
+        <h3>Pulsar 220</h3>
+        <a href="https://en.wikipedia.org/wiki/Bajaj_Pulsar">about bike</a>
+        <p>₹900 / day</p>
+        <button onclick="bookBike('Pulsar 220', 900)">Book Now</button>
+    </div>
+    <div class="card">
+        <img src="https://uploads.onecompiler.io/448z8k6ue/44b8e7pey/tvs-jupiter-110-right-side-view.avif">
+        <h3>Scooty</h3>
+        <a href="https://en.wikipedia.org/wiki/Scooter_(motorcycle)">about scooter</a>
+        <p>₹500 / day</p>
+        <button onclick="bookBike('Scooty', 500)">Book Now</button>
+    </div>
+    <div class="card">
+        <img src="https://uploads.onecompiler.io/448z8k6ue/44b8e7pey/fz.jpg">
+        <h3>Fz</h3>
+        <a href="https://en.wikipedia.org/wiki/Yamaha_FZ16">about bike</a>
+        <p>₹800 / day</p>
+        <button onclick="bookBike('Fz', 800)">Book Now</button>
+    </div>
+     <div class="card">
+        <img src="https://uploads.onecompiler.io/448z8k6ue/44b8e7pey/front-left-side-47.avif">
+        <h3>Alto</h3>
+        <a href="https://en.wikipedia.org/wiki/Maruti_Suzuki_Alto">about car</a>
+        <p>₹2000 / day</p>
+        <button onclick="bookCar('Alto', 2000)">Book Now</button>
+    </div>
+     <div class="card">
+        <img src="https://uploads.onecompiler.io/448z8k6ue/44b8e7pey/kawasaki.jpg">
+        <h3>Kawasaki H2R</h3>
+        <a href="https://en.wikipedia.org/wiki/Kawasaki_Ninja_H2">about bike</a>
+        <p>₹4800 / day</p>
+        <button onclick="bookBike('Kawasaki H2R', 4800)">Book Now</button>
+    </div>
+     <div class="card">
+        <img src="https://uploads.onecompiler.io/448z8k6ue/44b8e7pey/dio-right-front-three-quarter.avif">
+        <h3>Dio Scooty</h3>
+        <a href="https://en.wikipedia.org/wiki/Honda_Dio">about scooter</a>
+        <p>₹400 / day</p>
+        <button onclick="bookBike('Dio Scooty', 400)">Book Now</button>
+    </div>
+    <div class="card">
+        <img src="https://uploads.onecompiler.io/448z8k6ue/44b8e7pey/xuv.jpg">
+        <h3>Mahindra XUV500</h3>
+        <a href="https://en.wikipedia.org/wiki/Mahindra_XUV500">about car</a>
+        <p>₹4000 / day</p>
+        <button onclick="bookCar('Mahindra XUV500', 4000)">Book Now</button>
+    </div>
+    
+</div>
+<div class="booking" id="bookingBox">
+    <h2>Bike and Car Booking</h2>
+
+    <p id="bikeName"></p>
+    <p id="carName"></p>
+
+    <label>Number of Days:</label>
+    <input type="number" id="days" min="1" value="1">
+
+    <button onclick="confirmBooking()">Confirm Booking</button>
+
+    <h3 id="totalPrice"></h3>
+    <p class="discount" id="discountText"></p>
+
+    <!-- Duplicate QR Codes -->
+    <div class="qr-container" id="qrBox">
+        <img src="https://uploads.onecompiler.io/448z8k6ue/44cpff3uf/OIP.jpg"
+        <h3>Scan QR to Pay</h3>
+        <img id="qr1">
+        <img id="qr2">
+    </div>
+</div>
+
+<div class="booking" id="bookingBox">
+    <h2>Bike and car Booking</h2>
+   
+    <p id="bikeName"></p>
+    <p id="carName"></p>
+    
+    <label>Number of Days:</label>
+    <input type="number" id="days" min="1" value="1">
+    <button onclick="confirmBooking()">Confirm Booking</button>
+    <h3 id="totalPrice"></h3>
+     
+
+
+<script>
+    let selectedBike = "";
+    let pricePerDay = 0;
+
+    function bookBike(bike, price) {
+        selectedBike = bike;
+        pricePerDay = price;
+        document.getElementById("bookingBox").style.display = "block";
+        document.getElementById("bikeName").innerText = "Bike: " + bike;
+        document.getElementById("totalPrice").innerText = "";
+    }
+    function bookCar(car, price) {
+        selectedBike = car;
+        pricePerDay = price;
+        document.getElementById("bookingBox").style.display = "block";
+        document.getElementById("carName").innerText = "car: " + car;
+        document.getElementById("totalPrice").innerText = "";
+    }
+
+    function confirmBooking() {
+        let days = document.getElementById("days").value;
+        let total = days * pricePerDay;
+        document.getElementById("totalPrice").innerText =
+            "Total Amount: ₹" + total + " ✅ Booking Confirmed!";
+    }
+    </script>
+    
+
+</div>
+</body>
+</html>
